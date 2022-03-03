@@ -41,7 +41,7 @@ publishing {
     publications {
         myDistribution(MavenPublication) {
             groupId = 'com.github.nbauma109'
-            artifact windowsDistZip
+            artifact distZip
         }
     }
 }
