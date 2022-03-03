@@ -1,6 +1,11 @@
+[![](https://jitpack.io/v/nbauma109/jd-eclipse.svg)](https://jitpack.io/#nbauma109/jd-eclipse)
+[![](https://jitci.com/gh/nbauma109/jd-eclipse/svg)](https://jitci.com/gh/nbauma109/jd-eclipse)
+[![CodeQL](https://github.com/nbauma109/jd-eclipse/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/nbauma109/jd-eclipse/actions/workflows/codeql-analysis.yml)
+[![Github Release](https://github.com/nbauma109/jd-eclipse/actions/workflows/release.yml/badge.svg)](https://github.com/nbauma109/jd-eclipse/actions/workflows/release.yml)
+
 # JD-Eclipse
 
-JD-Eclipse, a Java decompiler plug-in for the Eclipse platform.
+JD-Eclipse, a Java decompiler plug-in for the Eclipse platform. [![image](https://user-images.githubusercontent.com/9403560/156565769-51264b92-4850-46c1-ad33-a4211a4c89ec.png)](https://jitpack.io/com/github/nbauma109/jd-eclipse/jd-eclipse/master-SNAPSHOT/jd-eclipse-master-SNAPSHOT.zip)
 
 ![](https://raw.githubusercontent.com/java-decompiler/jd-eclipse/master/src/website/img/jd-eclipse.png)
 
