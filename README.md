@@ -1,4 +1,5 @@
 [![](https://jitpack.io/v/nbauma109/jd-eclipse.svg)](https://jitpack.io/#nbauma109/jd-eclipse)
+[![](https://jitci.com/gh/nbauma109/jd-eclipse/svg)](https://jitci.com/gh/nbauma109/jd-eclipse)
 [![CodeQL](https://github.com/nbauma109/jd-eclipse/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/nbauma109/jd-eclipse/actions/workflows/codeql-analysis.yml)
 [![Github Release](https://github.com/nbauma109/jd-eclipse/actions/workflows/release.yml/badge.svg)](https://github.com/nbauma109/jd-eclipse/actions/workflows/release.yml)
 
