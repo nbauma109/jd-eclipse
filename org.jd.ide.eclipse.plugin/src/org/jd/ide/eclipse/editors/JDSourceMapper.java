@@ -7,21 +7,22 @@
 
 package org.jd.ide.eclipse.editors;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.jdt.internal.core.SourceMapper;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.jd.core.v1.ClassFileToJavaSourceDecompiler;
 import org.jd.core.v1.api.loader.Loader;
 import org.jd.ide.eclipse.JavaDecompilerPlugin;
 import org.jd.ide.eclipse.util.loader.DirectoryLoader;
 import org.jd.ide.eclipse.util.loader.ZipLoader;
 import org.jd.ide.eclipse.util.printer.LineNumberStringBuilderPrinter;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.jdt.internal.core.SourceMapper;
-import org.eclipse.jface.preference.IPreferenceStore;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 
 /**
@@ -31,13 +32,12 @@ import org.eclipse.jface.preference.IPreferenceStore;
  * @version 0.1.4
  * @see     org.eclipse.jdt.internal.core.SourceMapper
  */
-@SuppressWarnings("restriction")
 public class JDSourceMapper extends SourceMapper {
-	private final static String JAVA_CLASS_SUFFIX         = ".class";
-	private final static String JAVA_SOURCE_SUFFIX        = ".java";
-	private final static int    JAVA_SOURCE_SUFFIX_LENGTH = 5;
+	private static final String JAVA_CLASS_SUFFIX         = ".class";
+	private static final String JAVA_SOURCE_SUFFIX        = ".java";
+	private static final int    JAVA_SOURCE_SUFFIX_LENGTH = 5;
 
-	private final static ClassFileToJavaSourceDecompiler DECOMPILER = new ClassFileToJavaSourceDecompiler();
+	private static final ClassFileToJavaSourceDecompiler DECOMPILER = new ClassFileToJavaSourceDecompiler();
 	
 	private File basePath;
 	
@@ -74,7 +74,7 @@ public class JDSourceMapper extends SourceMapper {
 				source = decompile(this.basePath.getAbsolutePath(), internalTypeName);
 			} catch (Exception e) {
 				JavaDecompilerPlugin.getDefault().getLog().log(new Status(
-					Status.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
+					IStatus.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
 					0, e.getMessage(), e));
 			}
 		}
@@ -109,7 +109,7 @@ public class JDSourceMapper extends SourceMapper {
         		loader = new ZipLoader(base);
         	} else {
 				JavaDecompilerPlugin.getDefault().getLog().log(new Status(
-						Status.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
+						IStatus.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
 						"Unexpected container type file: " + basePath));
         		return null;
         	}
