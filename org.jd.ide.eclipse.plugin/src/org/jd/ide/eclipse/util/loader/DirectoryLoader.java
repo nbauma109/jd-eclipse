@@ -8,7 +8,6 @@
 package org.jd.ide.eclipse.util.loader;
 
 import org.jd.core.v1.api.loader.Loader;
-import org.jd.core.v1.api.loader.LoaderException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -18,12 +17,12 @@ import java.io.IOException;
 public class DirectoryLoader implements Loader {
 	protected File root;
 	
-    public  DirectoryLoader(File root) throws LoaderException {
+    public  DirectoryLoader(File root) throws IOException {
     	this.root = root;
     }
 
     @Override
-    public byte[] load(String internalName) throws LoaderException {
+    public byte[] load(String internalName) throws IOException {
     	File file = new File(root, internalName + ".class");
 
     	try (FileInputStream in=new FileInputStream(file); ByteArrayOutputStream out=new ByteArrayOutputStream()) {
@@ -37,7 +36,7 @@ public class DirectoryLoader implements Loader {
 
             return out.toByteArray();
         } catch (IOException e) {
-            throw new LoaderException(e);
+            throw new IOException(e);
         }    	
     }
 

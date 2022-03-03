@@ -8,7 +8,6 @@
 package org.jd.ide.eclipse.util.loader;
 
 import org.jd.core.v1.api.loader.Loader;
-import org.jd.core.v1.api.loader.LoaderException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -21,7 +20,7 @@ import java.util.zip.ZipInputStream;
 public class ZipLoader implements Loader {
     protected HashMap<String, byte[]> map = new HashMap<>();
 
-    public  ZipLoader(File zip) throws LoaderException {
+    public  ZipLoader(File zip) throws IOException {
         byte[] buffer = new byte[1024 * 2];
 
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zip))) {
@@ -45,12 +44,12 @@ public class ZipLoader implements Loader {
 
             zis.closeEntry();
         } catch (IOException e) {
-            throw new LoaderException(e);
+            throw new IOException(e);
         }
     }
 
     @Override
-    public byte[] load(String internalName) throws LoaderException {
+    public byte[] load(String internalName) throws IOException {
         return map.get(internalName + ".class");
     }
 
