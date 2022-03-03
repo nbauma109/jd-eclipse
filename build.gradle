@@ -45,4 +45,4 @@ publishing {
             from components.java
         }
     }
-
+}
