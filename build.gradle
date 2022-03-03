@@ -39,10 +39,9 @@ distributions {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        myDistribution(MavenPublication) {
             groupId = 'com.github.nbauma109'
-            artifactId = 'jd-eclipse'
-            from components.java
+            artifact windowsDistZip
         }
     }
 }
