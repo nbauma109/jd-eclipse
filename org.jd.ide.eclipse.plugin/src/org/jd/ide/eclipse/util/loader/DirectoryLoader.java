@@ -17,7 +17,7 @@ import java.io.IOException;
 public class DirectoryLoader implements Loader {
 	protected File root;
 	
-    public  DirectoryLoader(File root) throws IOException {
+    public  DirectoryLoader(File root) {
     	this.root = root;
     }
 

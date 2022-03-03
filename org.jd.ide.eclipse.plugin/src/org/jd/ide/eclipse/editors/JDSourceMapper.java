@@ -14,10 +14,10 @@ import org.eclipse.jdt.internal.core.SourceMapper;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.jd.core.v1.ClassFileToJavaSourceDecompiler;
 import org.jd.core.v1.api.loader.Loader;
+import org.jd.core.v1.printer.LineNumberStringBuilderPrinter;
 import org.jd.ide.eclipse.JavaDecompilerPlugin;
 import org.jd.ide.eclipse.util.loader.DirectoryLoader;
 import org.jd.ide.eclipse.util.loader.ZipLoader;
-import org.jd.ide.eclipse.util.printer.LineNumberStringBuilderPrinter;
 
 import java.io.File;
 import java.util.HashMap;

@@ -19,9 +19,11 @@ Bundle-ClassPath: /lib/jd-core-1.2.8.jar,
  /lib/jd-util-1.1.6.jar,
  .
 Export-Package: org.jd.core.v1,
+ org.jd.core.v1.api.loader,
+ org.jd.core.v1.api.printer,
  org.jd.ide.eclipse,
  org.jd.ide.eclipse.editors,
  org.jd.ide.eclipse.preferences,
  org.jd.ide.eclipse.startup,
- org.jd.ide.eclipse.util.loader,
- org.jd.ide.eclipse.util.printer
+ org.jd.ide.eclipse.util.loader
+Automatic-Module-Name: org.jd.ide.eclipse.plugin
