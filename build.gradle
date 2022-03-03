@@ -36,3 +36,13 @@ distributions {
 		}
 	}
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.github.nbauma109'
+            artifactId = 'jd-eclipse'
+            from components.java
+        }
+    }
+
