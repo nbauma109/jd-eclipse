@@ -126,8 +126,9 @@ public class JDClassFileEditor extends ClassFileEditor implements IPropertyChang
 					sourceRootPath = null;
 				} else {
 					sourceRootPath = sourceAttachmentRootPath.toString();
-					if ((sourceRootPath != null) && (sourceRootPath.length() == 0))
+					if ((sourceRootPath != null) && (sourceRootPath.length() == 0)) {
 						sourceRootPath = null;
+					}
 				}
 				
 				// Options
