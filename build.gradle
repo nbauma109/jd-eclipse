@@ -46,6 +46,6 @@ publishing {
         }
     }
 	repositories {
-		maven { url "$buildDir/repo" }
+		maven { url "jitci::default::file:///home/jitpack/deploy" }
 	}
 }
