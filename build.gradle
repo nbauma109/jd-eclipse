@@ -45,7 +45,4 @@ publishing {
             artifact distZip
         }
     }
-	repositories {
-		maven { url "$System.env.DEPLOY_DIR" }
-	}
 }
