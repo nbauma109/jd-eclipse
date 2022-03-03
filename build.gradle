@@ -1,4 +1,5 @@
 apply plugin: 'distribution'
+apply plugin: 'maven-publish'
 
 // Common configuration //
 allprojects {
