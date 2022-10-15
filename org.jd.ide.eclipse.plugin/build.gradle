@@ -20,7 +20,7 @@ dependencies {
 	compileOnly('org.eclipse.jdt:org.eclipse.jdt.core:3.28.0') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.jdt:org.eclipse.jdt.ui:3.25.0') {
+	compileOnly('org.eclipse.jdt:org.eclipse.jdt.ui:3.27.0') {
 		exclude group:'org.eclipse.birt.runtime'
 		exclude group:'org.eclipse.emf'
 		exclude group:'org.eclipse.jdt'
