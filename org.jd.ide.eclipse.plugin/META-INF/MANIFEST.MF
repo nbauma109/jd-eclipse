@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: JD-Eclipse Plug-in
 Bundle-SymbolicName: org.jd.ide.eclipse.plugin;singleton:=true
-Bundle-Version: 2.1.5
+Bundle-Version: 2.1.6
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.editors,
@@ -16,9 +16,9 @@ Bundle-Vendor: Java Decompiler
 Bundle-Activator: org.jd.ide.eclipse.JavaDecompilerPlugin
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: /lib/commons-io-2.11.0.jar,
- /lib/bcel-6.5.0.jar,
- /lib/jd-util-1.1.6.jar,
- /lib/jd-core-1.2.8.jar,
+ /lib/bcel-6.6.0.jar,
+ /lib/jd-util-1.1.11.jar,
+ /lib/jd-core-1.2.15.jar,
  .
 Export-Package: jd.core,
  jd.core.model.instruction.bytecode,

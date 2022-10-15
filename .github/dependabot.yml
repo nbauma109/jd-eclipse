@@ -11,3 +11,4 @@ updates:
       interval: "daily"
       time: "17:00"
       timezone: "Europe/Paris"
+    open-pull-requests-limit: 15
