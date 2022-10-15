@@ -3,7 +3,7 @@ apply plugin: 'maven-publish'
 
 // Common configuration //
 allprojects {
-	version='2.1.5'
+	version='2.1.6'
 }
 
 subprojects.each { subproject ->
