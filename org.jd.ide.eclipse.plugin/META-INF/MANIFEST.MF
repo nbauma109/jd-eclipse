@@ -16,9 +16,9 @@ Bundle-Vendor: Java Decompiler
 Bundle-Activator: org.jd.ide.eclipse.JavaDecompilerPlugin
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: /lib/commons-io-2.11.0.jar,
- /lib/bcel-6.5.0.jar,
- /lib/jd-util-1.1.6.jar,
- /lib/jd-core-1.2.8.jar,
+ /lib/bcel-6.6.0.jar,
+ /lib/jd-util-1.1.11.jar,
+ /lib/jd-core-1.2.15.jar,
  .
 Export-Package: jd.core,
  jd.core.model.instruction.bytecode,
