@@ -13,7 +13,7 @@ configurations {
 dependencies {
 	implementation 'com.github.nbauma109:jd-core:1.2.8'
 	
-	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.100'
+	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.200'
 	compileOnly 'org.eclipse.platform:org.eclipse.core.resources:3.16.0'
 
 	compileOnly('org.eclipse.jdt:org.eclipse.jdt.core:3.28.0') {
