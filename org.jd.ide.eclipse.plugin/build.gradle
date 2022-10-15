@@ -11,7 +11,7 @@ configurations {
 }
 
 dependencies {
-	implementation 'com.github.nbauma109:jd-core:1.2.8'
+	implementation 'com.github.nbauma109:jd-core:1.2.15'
 	
 	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.100'
 
