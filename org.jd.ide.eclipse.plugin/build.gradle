@@ -26,7 +26,7 @@ dependencies {
 		exclude group:'org.eclipse.platform'
 		exclude group:'com.ibm.icu'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.jface:3.24.0') {
+	compileOnly('org.eclipse.platform:org.eclipse.jface:3.27.0') {
 		exclude group:'org.eclipse.platform'
 	}
 	compileOnly('org.eclipse.platform:org.eclipse.jface.text:3.21.0') {
