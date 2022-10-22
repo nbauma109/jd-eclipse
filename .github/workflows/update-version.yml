@@ -16,14 +16,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-          token: ${{ secrets.FG_PAT_TOKEN }}
+          token: ${{ secrets.MULTI_USAGE_TOKEN }}
     - name: Setup git user
       run: |
          git config --global user.email "action@github.com"
          git config --global user.name "GitHub Action"
     - name: Update Version
       env:
-        GITHUB_TOKEN: ${{ secrets.FG_PAT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MULTI_USAGE_TOKEN }}
       run: |
          export VERSION=`grep Bundle-Version org.jd.ide.eclipse.plugin/META-INF/MANIFEST.MF | cut -d: -f2 | xargs`
          export MAJOR=`echo $VERSION | cut -d. -f1`
