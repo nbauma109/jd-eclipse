@@ -30,10 +30,6 @@ public class JavaDecompilerPlugin extends AbstractUIPlugin {
 	public  static final String PLUGIN_ID = "jd.ide.eclipse";
 	private static final String EDITOR_ID = PLUGIN_ID + ".editors.JDClassFileEditor";	
 	
-	// Versions
-	public static final String VERSION_JD_ECLIPSE = "2.1.6";
-	public static final String VERSION_JD_CORE    = "1.2.15";
-
 	// Preferences
 	public static final String PREF_ESCAPE_UNICODE_CHARACTERS   = PLUGIN_ID + ".prefs.EscapeUnicodeCharacters";
 	public static final String PREF_REALIGN_LINE_NUMBERS        = PLUGIN_ID + ".prefs.RealignLineNumbers";

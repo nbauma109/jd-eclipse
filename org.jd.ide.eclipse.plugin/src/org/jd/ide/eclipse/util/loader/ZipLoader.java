@@ -27,7 +27,7 @@ public class ZipLoader implements Loader {
             ZipEntry ze = zis.getNextEntry();
 
             while (ze != null) {
-                if (ze.isDirectory() == false) {
+                if (!ze.isDirectory()) {
                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                     int read = zis.read(buffer);
 

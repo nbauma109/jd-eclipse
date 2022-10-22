@@ -154,7 +154,7 @@ public class JDSourceMapper extends SourceMapper {
             }
             // Add JD-Core version
             stringBuffer.append("\n * JD-Core Version:       ");
-            stringBuffer.append(JavaDecompilerPlugin.VERSION_JD_CORE);
+            stringBuffer.append(printer.getVersion());
             stringBuffer.append("\n */");
         }
         

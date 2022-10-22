@@ -104,13 +104,6 @@ public class JDClassFileEditor extends ClassFileEditor implements IPropertyChang
 					baseFile = basePath.makeAbsolute().toFile();
 				}
 				
-				// Class path
-				String classPath = classFile.getElementName();
-				String packageName = packageFragment.getElementName();
-				if ((packageName != null) && (packageName.length() > 0)) {
-					classPath = packageName.replace('.', '/') + '/' + classPath;
-				}
-				
 				// Location of the archive file containing source.
 				IPath sourcePath = root.getSourceAttachmentPath();
 				if (sourcePath == null) {

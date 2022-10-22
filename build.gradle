@@ -1,19 +1,23 @@
 apply plugin: 'distribution'
 apply plugin: 'maven-publish'
 
-// Common configuration //
-allprojects {
-	version='2.1.6'
-}
-
 subprojects.each { subproject ->
     evaluationDependsOn(subproject.path)
+}
+
+import org.apache.tools.ant.filters.*
+ 
+task('filterCopy', type: Copy) {
+    from 'org.jd.ide.eclipse.site'
+    into buildDir
+    include 'site.xml'
+    filter(ReplaceTokens, tokens: [VERSION : project.version])
 }
 
 distributions {
 	distZip {
 		// Create JAR files before final ZIP file
-		dependsOn subprojects.tasks['jar']		
+		dependsOn subprojects.tasks['jar']
 		// For each file, remove root directory  
 		eachFile { file ->
         	String path = file.relativePath
@@ -33,10 +37,12 @@ distributions {
 					fileTree 'org.jd.ide.eclipse.plugin/build/libs'
 				}
 			}
-			from 'org.jd.ide.eclipse.site/site.xml', 'LICENSE', 'NOTICE', 'README.md'
+			from "$buildDir/site.xml", 'LICENSE', 'NOTICE', 'README.md'
 		}
 	}
 }
+
+distZip.dependsOn 'filterCopy'
 
 publishing {
     publications {
