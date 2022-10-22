@@ -12,7 +12,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IFileEditorMapping;
 import org.eclipse.ui.internal.WorkbenchPlugin;
-import org.eclipse.ui.internal.registry.EditorDescriptor;
 import org.eclipse.ui.internal.registry.EditorRegistry;
 import org.eclipse.ui.internal.registry.FileEditorMapping;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -102,7 +101,7 @@ public class JavaDecompilerPlugin extends AbstractUIPlugin {
 				for (IEditorDescriptor descriptor : c.getEditors()) {		
 					if (descriptor.getId().equals(EDITOR_ID)) {
 						// Remove JD editor on "class" extension
-						((FileEditorMapping)c).removeEditor((EditorDescriptor)descriptor);
+						((FileEditorMapping)c).removeEditor(descriptor);
 
 						// Set JD as default editor on "class without source" extension
 						registry.setDefaultEditor("." + cws.getExtension(), descriptor.getId());

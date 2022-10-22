@@ -72,9 +72,9 @@ public class JDClassFileEditor extends ClassFileEditor implements IPropertyChang
 		if (buffer != null) {
 			try {
 				// Remove the buffer
-				Method method = BufferManager.class.getDeclaredMethod("removeBuffer", new Class[] {IBuffer.class});
+				Method method = BufferManager.class.getDeclaredMethod("removeBuffer", IBuffer.class);
 				method.setAccessible(true);
-				method.invoke(BufferManager.getDefaultBufferManager(), new Object[] {buffer});				
+				method.invoke(BufferManager.getDefaultBufferManager(), buffer);				
 			} catch (Exception e) {
 				JavaDecompilerPlugin.getDefault().getLog().log(new Status(
 					IStatus.ERROR, JavaDecompilerPlugin.PLUGIN_ID, 
