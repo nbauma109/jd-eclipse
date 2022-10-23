@@ -136,6 +136,7 @@ jobs:
         uses: actions/checkout@v2
         with:
             token: ${{ secrets.MULTI_USAGE_TOKEN }}
+            ref: ${{ github.event.inputs.combineBranchName }}
       - name: Setup git user
         run: |
            git config --global user.email "action@github.com"
