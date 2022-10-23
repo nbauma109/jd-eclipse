@@ -7,6 +7,11 @@
 
 package org.jd.ide.eclipse.editors;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -15,19 +20,12 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.jd.core.v1.ClassFileToJavaSourceDecompiler;
 import org.jd.core.v1.api.loader.Loader;
 import org.jd.core.v1.printer.LineNumberStringBuilderPrinter;
+import org.jd.core.v1.util.StringConstants;
 import org.jd.ide.eclipse.JavaDecompilerPlugin;
 import org.jd.ide.eclipse.util.loader.DirectoryLoader;
 import org.jd.ide.eclipse.util.loader.ZipLoader;
 
-import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.jar.Attributes;
-import java.util.jar.Manifest;
+import jd.core.preferences.Preferences;
 
 
 /**
@@ -38,7 +36,6 @@ import java.util.jar.Manifest;
  * @see     org.eclipse.jdt.internal.core.SourceMapper
  */
 public class JDSourceMapper extends SourceMapper {
-	private static final String JAVA_CLASS_SUFFIX         = ".class";
 	private static final String JAVA_SOURCE_SUFFIX        = ".java";
 	private static final int    JAVA_SOURCE_SUFFIX_LENGTH = 5;
 
@@ -102,8 +99,11 @@ public class JDSourceMapper extends SourceMapper {
 		boolean showLineNumbers = store.getBoolean(JavaDecompilerPlugin.PREF_SHOW_LINE_NUMBERS);
 		boolean showMetaData = store.getBoolean(JavaDecompilerPlugin.PREF_SHOW_METADATA);
 		
-        Map<String, Object> configuration = new HashMap<>();
-        configuration.put("realignLineNumbers", realignmentLineNumber);
+        Map<String, String> configuration = new HashMap<>();
+        configuration.put(Preferences.REALIGN_LINE_NUMBERS, Boolean.toString(realignmentLineNumber));
+        configuration.put(Preferences.ESCAPE_UNICODE_CHARACTERS, Boolean.toString(unicodeEscape));
+        configuration.put(Preferences.WRITE_LINE_NUMBERS, Boolean.toString(showLineNumbers));
+        configuration.put(Preferences.WRITE_METADATA, Boolean.toString(showMetaData));
         
         // Initialize loader
         Loader loader;
@@ -122,59 +122,8 @@ public class JDSourceMapper extends SourceMapper {
         	loader = new DirectoryLoader(base);
         }
 
-        // Initialize printer
-        printer.setRealignmentLineNumber(realignmentLineNumber);
-        printer.setUnicodeEscape(unicodeEscape);
-        printer.setShowLineNumbers(showLineNumbers);
-        
-        // Decompile class file
-        DECOMPILER.decompile(loader, printer, internalTypeName, configuration);
-		
-        StringBuilder stringBuffer = printer.getStringBuffer();
-
-        // Metadata
-        if (showMetaData) {
-            // Add location
-            stringBuffer.append("\n\n/* Location:              ");
-            String classPath = internalTypeName + JAVA_CLASS_SUFFIX;
-        	String location = base.isFile() ? base.getPath() + "!/" + classPath : new File(base, classPath).getPath();
-            // Escape "\ u" sequence to prevent "Invalid unicode" errors
-            stringBuffer.append(location.replaceAll("(^|[^\\\\])\\\\u", "\\\\\\\\u"));
-            // Add Java compiler version
-            int majorVersion = printer.getMajorVersion();
-            if (majorVersion >= 45) {
-                stringBuffer.append("\n * Java compiler version: ");
-
-                if (majorVersion >= 49) {
-                    stringBuffer.append(majorVersion - (49 - 5));
-                } else {
-                    stringBuffer.append(majorVersion - (45 - 1));
-                }
-
-                stringBuffer.append(" (");
-                stringBuffer.append(majorVersion);
-                stringBuffer.append('.');
-                stringBuffer.append(printer.getMinorVersion());
-                stringBuffer.append(')');
-            }
-            // Add JD-Core version
-            stringBuffer.append("\n * JD-Core Version:       ");
-            Enumeration<URL> manifestURLs = getClass().getClassLoader().getResources("META-INF/MANIFEST.MF");
-            while (manifestURLs.hasMoreElements()) {
-				URL manifestUrl = manifestURLs.nextElement();
-				try (InputStream inputStream = manifestUrl.openStream()) {
-					Manifest manifest = new Manifest(inputStream);
-					Attributes attributes = manifest.getMainAttributes();
-					String version = attributes.getValue("JD-Core-Version");
-					if (version != null) {
-						stringBuffer.append(version);
-						break;
-					}
-				}
-			}
-            stringBuffer.append("\n */");
-        }
-        
-		return stringBuffer.toString().toCharArray();
+        String entryPath = internalTypeName + StringConstants.CLASS_FILE_SUFFIX;
+		String decompiledOutput = printer.buildDecompiledOutput(configuration, loader, entryPath, DECOMPILER);
+		return decompiledOutput .toCharArray();
 	}
 }
