@@ -20,9 +20,14 @@ import org.jd.ide.eclipse.util.loader.DirectoryLoader;
 import org.jd.ide.eclipse.util.loader.ZipLoader;
 
 import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 
 
 /**
@@ -154,7 +159,19 @@ public class JDSourceMapper extends SourceMapper {
             }
             // Add JD-Core version
             stringBuffer.append("\n * JD-Core Version:       ");
-            stringBuffer.append(printer.getVersion());
+            Enumeration<URL> manifestURLs = getClass().getClassLoader().getResources("META-INF/MANIFEST.MF");
+            while (manifestURLs.hasMoreElements()) {
+				URL manifestUrl = manifestURLs.nextElement();
+				try (InputStream inputStream = manifestUrl.openStream()) {
+					Manifest manifest = new Manifest(inputStream);
+					Attributes attributes = manifest.getMainAttributes();
+					String version = attributes.getValue("JD-Core-Version");
+					if (version != null) {
+						stringBuffer.append(version);
+						break;
+					}
+				}
+			}
             stringBuffer.append("\n */");
         }
         
