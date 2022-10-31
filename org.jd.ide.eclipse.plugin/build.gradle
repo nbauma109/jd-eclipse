@@ -11,7 +11,7 @@ configurations {
 }
 
 dependencies {
-	implementation 'com.github.nbauma109:jd-core:1.2.18'
+	implementation 'com.github.nbauma109:jd-core:1.2.21'
 	
 	implementation 'com.github.nbauma109:jd-util:1.1.12'
 	
