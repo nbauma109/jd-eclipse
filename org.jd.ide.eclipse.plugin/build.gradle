@@ -55,7 +55,7 @@ dependencies {
 	compileOnly('org.eclipse.platform:org.eclipse.ui.editors:3.14.400') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly 'org.eclipse.platform:org.eclipse.text:3.12.200'
+	compileOnly 'org.eclipse.platform:org.eclipse.text:3.12.300'
 
 }
 
