@@ -49,7 +49,7 @@ dependencies {
 	compileOnly('org.eclipse.platform:org.eclipse.ui.workbench.texteditor:3.16.600') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.ui.ide:3.19.100') {
+	compileOnly('org.eclipse.platform:org.eclipse.ui.ide:3.20.0') {
 		exclude group:'org.eclipse.platform'
 	}
 	compileOnly('org.eclipse.platform:org.eclipse.ui.editors:3.14.400') {
