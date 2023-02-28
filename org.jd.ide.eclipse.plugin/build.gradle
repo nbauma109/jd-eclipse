@@ -11,51 +11,51 @@ configurations {
 }
 
 dependencies {
-	implementation 'com.github.nbauma109:jd-core:1.2.18'
+	implementation 'com.github.nbauma109:jd-core:1.2.25'
 	
-	implementation 'com.github.nbauma109:jd-util:1.1.12'
+	implementation 'com.github.nbauma109:jd-util:1.1.14'
 	
-	implementation 'org.apache.bcel:bcel:6.6.0'	
+	implementation 'org.apache.bcel:bcel:6.7.0'	
 
 	implementation 'commons-io:commons-io:2.11.0'
 	
-	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.200'
+	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.300'
 
-	compileOnly 'org.eclipse.platform:org.eclipse.core.resources:3.18.0'
+	compileOnly 'org.eclipse.platform:org.eclipse.core.resources:3.18.100'
 
-	compileOnly('org.eclipse.jdt:org.eclipse.jdt.core:3.31.0') {
+	compileOnly('org.eclipse.jdt:org.eclipse.jdt.core:3.32.0') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.jdt:org.eclipse.jdt.ui:3.27.0') {
+	compileOnly('org.eclipse.jdt:org.eclipse.jdt.ui:3.27.100') {
 		exclude group:'org.eclipse.birt.runtime'
 		exclude group:'org.eclipse.emf'
 		exclude group:'org.eclipse.jdt'
 		exclude group:'org.eclipse.platform'
 		exclude group:'com.ibm.icu'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.jface:3.27.0') {
+	compileOnly('org.eclipse.platform:org.eclipse.jface:3.28.0') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.jface.text:3.21.0') {
+	compileOnly('org.eclipse.platform:org.eclipse.jface.text:3.22.0') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.swt.win32.win32.x86_64:3.121.0') {
+	compileOnly('org.eclipse.platform:org.eclipse.swt.win32.win32.x86_64:3.122.0') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.ui.workbench:3.126.0') {
+	compileOnly('org.eclipse.platform:org.eclipse.ui.workbench:3.127.0') {
 		exclude group:'org.eclipse.emf'
 		exclude group:'org.eclipse.platform'
 	}
 	compileOnly('org.eclipse.platform:org.eclipse.ui.workbench.texteditor:3.16.600') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.ui.ide:3.19.100') {
+	compileOnly('org.eclipse.platform:org.eclipse.ui.ide:3.20.0') {
 		exclude group:'org.eclipse.platform'
 	}
 	compileOnly('org.eclipse.platform:org.eclipse.ui.editors:3.14.400') {
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly 'org.eclipse.platform:org.eclipse.text:3.12.200'
+	compileOnly 'org.eclipse.platform:org.eclipse.text:3.12.300'
 
 }
 
