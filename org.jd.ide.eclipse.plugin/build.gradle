@@ -15,7 +15,7 @@ dependencies {
 	
 	implementation 'com.github.nbauma109:jd-util:1.1.14'
 	
-	implementation 'org.apache.bcel:bcel:6.6.0'	
+	implementation 'org.apache.bcel:bcel:6.7.0'	
 
 	implementation 'commons-io:commons-io:2.11.0'
 	
