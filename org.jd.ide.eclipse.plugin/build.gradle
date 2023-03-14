@@ -46,7 +46,7 @@ dependencies {
 		exclude group:'org.eclipse.emf'
 		exclude group:'org.eclipse.platform'
 	}
-	compileOnly('org.eclipse.platform:org.eclipse.ui.workbench.texteditor:3.16.600') {
+	compileOnly('org.eclipse.platform:org.eclipse.ui.workbench.texteditor:3.16.700') {
 		exclude group:'org.eclipse.platform'
 	}
 	compileOnly('org.eclipse.platform:org.eclipse.ui.ide:3.20.0') {
