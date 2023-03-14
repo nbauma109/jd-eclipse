@@ -19,7 +19,7 @@ dependencies {
 
 	implementation 'commons-io:commons-io:2.11.0'
 	
-	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.300'
+	compileOnly 'org.eclipse.platform:org.eclipse.core.commands:3.10.400'
 
 	compileOnly 'org.eclipse.platform:org.eclipse.core.resources:3.18.100'
 
