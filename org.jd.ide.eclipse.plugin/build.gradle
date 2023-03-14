@@ -23,7 +23,7 @@ dependencies {
 
 	compileOnly 'org.eclipse.platform:org.eclipse.core.resources:3.18.100'
 
-	compileOnly('org.eclipse.jdt:org.eclipse.jdt.core:3.32.0') {
+	compileOnly('org.eclipse.jdt:org.eclipse.jdt.core:3.33.0') {
 		exclude group:'org.eclipse.platform'
 	}
 	compileOnly('org.eclipse.jdt:org.eclipse.jdt.ui:3.27.100') {
